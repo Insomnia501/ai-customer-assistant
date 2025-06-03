@@ -3,9 +3,9 @@ import './App.css';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import ReactMarkdown from 'react-markdown';
 
-const API_URL = process.env.REACT_APP_API_URL;
-const ACCESS_TOKEN = process.env.REACT_APP_ACCESS_TOKEN;
-const BOT_ID = process.env.REACT_APP_BOT_ID;
+const API_URL = 'https://api.coze.cn/open_api/v2/chat';
+const ACCESS_TOKEN = 'pat_nrMPFLk3fKQEdV45sTTS4qfrJHc4ENM2cnZSMRzGt1vMHmZSCSeZ3US9T1JF44ai';
+const BOT_ID = '7511180340783071242';
 
 function App() {
   const [messages, setMessages] = useState([
