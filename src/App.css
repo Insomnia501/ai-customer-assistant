@@ -154,3 +154,57 @@ body {
 @keyframes ai-spin {
   100% { transform: rotate(360deg); }
 }
+
+/* 移动端适配 */
+@media (max-width: 600px) {
+  .ai-header {
+    padding: 1.2rem 0.5rem 0.5rem 0.5rem;
+    border-radius: 0 0 1.2rem 1.2rem;
+  }
+  .ai-header h1 {
+    font-size: 1.3rem;
+  }
+  .ai-subtitle {
+    font-size: 0.95rem;
+  }
+  .ai-intro {
+    max-width: 98vw;
+    padding: 0.8rem 0.5rem;
+    font-size: 0.95rem;
+    border-radius: 0.7rem;
+  }
+  .ai-chat-container {
+    margin-bottom: 1.2rem;
+  }
+  .ai-chat-box {
+    max-width: 99vw;
+    min-height: 180px;
+    padding: 0.7rem 0.3rem 0.7rem 0.3rem;
+    border-radius: 0.7rem;
+    font-size: 0.95rem;
+  }
+  .ai-msg {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.97rem;
+    max-width: 95%;
+    border-radius: 0.9rem;
+  }
+  .ai-chat-input-bar {
+    max-width: 99vw;
+    gap: 0.2rem;
+  }
+  .ai-chat-input {
+    font-size: 0.97rem;
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.7rem;
+  }
+  .ai-send-btn {
+    padding: 0 0.9rem;
+    font-size: 0.97rem;
+    border-radius: 0.7rem;
+  }
+  .ai-footer {
+    font-size: 0.85rem;
+    margin: 1.2rem 0 0.7rem 0;
+  }
+}
