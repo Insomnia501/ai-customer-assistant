@@ -1,3 +1,63 @@
+# AI Customer Assistant for Medical Beauty Industry
+
+This is a demo project of an intelligent customer service assistant tailored for the medical beauty industry.
+
+**Technical support is provided by the PowerMatrix team.**
+
+We have built a customized AI Agent for the medical beauty field, leveraging a professional knowledge base specific to the industry. Through this web-based interface, users can experience our smart customer service solution in real time.
+
+---
+
+- **Industry Focus:** Medical Beauty (Aesthetic Medicine)
+- **Features:**
+  - 24/7 intelligent Q&A
+  - Professional, humanized responses
+  - Powered by advanced AI models and industry knowledge
+- **How to Use:**
+  - Simply open the web page and start chatting with the AI assistant.
+
+For more information or business cooperation, please contact the PowerMatrix team.
+
+---
+
+## Technology Stack
+
+- **Frontend Framework:** React (Create React App)
+- **Styling:** CSS (custom, responsive for both PC and mobile)
+- **UI Components:** react-icons, react-markdown
+- **AI Integration:** Coze API (customized AI agent for medical beauty)
+- **Deployment:** Vercel (static hosting)
+
+## Deployment
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/PowerMatrixAI/ai-customer-assistant.git
+   cd ai-customer-assistant
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Build for production:
+   ```bash
+   npm run build
+   ```
+4. Deploy the `build` folder to your static hosting provider (e.g., Vercel, Netlify, or your own server).
+   - For Vercel, simply connect the repo and it will auto-deploy using the provided `vercel.json` configuration.
+
+## Configuration
+
+- **API Integration:**
+  - The Coze API endpoint and credentials are set in `src/App.js`.
+  - For production, it is recommended to use environment variables to store sensitive information.
+- **Routing:**
+  - The `vercel.json` file ensures correct routing for both static assets and SPA fallback.
+- **Responsive Design:**
+  - The app is fully responsive and adapts to both desktop and mobile devices.
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
