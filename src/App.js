@@ -2,18 +2,27 @@ import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import ReactMarkdown from 'react-markdown';
+import { MdOutlinePsychologyAlt, MdOutlineSmartToy } from 'react-icons/md';
 
-const API_URL = 'https://api.coze.cn/open_api/v2/chat';
-const ACCESS_TOKEN = 'pat_nrMPFLk3fKQEdV45sTTS4qfrJHc4ENM2cnZSMRzGt1vMHmZSCSeZ3US9T1JF44ai';
-const BOT_ID = '7511180340783071242';
+const API_URL = process.env.REACT_APP_API_URL;
+const ACCESS_TOKEN = process.env.REACT_APP_ACCESS_TOKEN;
+const BOT_ID_BASIC = process.env.REACT_APP_BOT_ID_BASIC;
+const BOT_ID_CUTIE = process.env.REACT_APP_BOT_ID_CUTIE;
+
+function getWelcomeMessage(useCutie) {
+  return useCutie
+    ? '哈喽呀，我是您的美容小助理，有什么变美的愿望可以和我许愿呢～✨'
+    : '您好，我是医美AI客服助手，有什么可以帮您？';
+}
 
 function App() {
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: '您好，我是医美AI客服助手，有什么可以帮您？' }
+    { role: 'assistant', content: getWelcomeMessage(false) }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
+  const [useCutie, setUseCutie] = useState(false);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -33,7 +42,7 @@ function App() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          bot_id: BOT_ID,
+          bot_id: useCutie ? BOT_ID_CUTIE : BOT_ID_BASIC,
           user: 'web_user_001',
           query: input,
         }),
@@ -58,9 +67,28 @@ function App() {
     }
   };
 
+  const handleSwitchAgent = () => {
+    setUseCutie(v => {
+      const next = !v;
+      setMessages([{ role: 'assistant', content: getWelcomeMessage(next) }]);
+      setInput('');
+      return next;
+    });
+  };
+
   return (
     <div className="ai-app">
       <div className="ai-header">
+        <div className="ai-agent-switch-bar">
+          <span className="ai-agent-label">
+            {useCutie ? <MdOutlinePsychologyAlt className="ai-agent-icon" /> : <MdOutlineSmartToy className="ai-agent-icon" />}
+            {useCutie ? '人性化Bot' : '常规Bot'}
+          </span>
+          <label className="ai-switch">
+            <input type="checkbox" checked={useCutie} onChange={handleSwitchAgent} />
+            <span className="ai-slider" />
+          </label>
+        </div>
         <h1>医美AI客服助手</h1>
         <div className="ai-subtitle">您的美容引路人</div>
       </div>
